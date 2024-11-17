@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this template
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+
+
+
+        <section th:fragment="login" class="vh-100 content">
+            <div class="container py-5 h-100">
+                <div class="row d-flex justify-content-center align-items-center h-100">
+                    <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+                        <div class="card bg-color1 text-white" style="border-radius: 1rem;">
+                            <div class="card-body p-5 text-center">
+
+                                <div class="mb-md-5 mt-md-4">
+
+                                    <h2 class="fw-bold mb-2 text-uppercase">Inicia Sesión</h2>
+                                    <p class="text-white-50 mb-5">Ingrese su correo y contraseña!</p>
+
+                                    <div data-mdb-input-init class="form-outline form-white mb-4">
+                                        <input type="email" id="typeEmailX" class="form-control form-control-lg" />
+                                        <label class="form-label" for="typeEmailX">Correo</label>
+                                    </div>
+
+                                    <div data-mdb-input-init class="form-outline form-white mb-4">
+                                        <input type="password" id="typePasswordX" class="form-control form-control-lg" />
+                                        <label class="form-label" for="typePasswordX">Contraseña</label>
+                                    </div>
+
+                                    <p class="small mb-5"><a class="text-white-50" href="#!">Olvidó su contraseña?</a></p>
+
+                                    <button data-mdb-button-init data-mdb-ripple-init class="btn btn-outline-light btn-lg px-5" type="submit">Inicia Sesión</button>
+
+                                </div>
+
+                                <div>
+                                    <p class="mb-0">No tiene una cuenta? <a href="#!" class="text-white-50 fw-bold">Regístrese</a>
+                                    </p>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+        <section th:fragment="signin" class="vh-100 contentSignin">
+            <div class="container py-5 h-100">
+                <div class="row d-flex justify-content-center align-items-center h-100">
+                    <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+                        <div class="card bg-color1 text-white" style="border-radius: 1rem;">
+                            <div class="card-body p-5 text-center">
+
+                                <div class="mb-md-5 mt-md-4">
+
+                                    <h2 class="fw-bold mb-1 text-uppercase">Regístrate</h2>
+                                    <p class="text-white-50 mb-2">Ingrese sus datos!</p>
+
+                                    <div data-mdb-input-init class="form-outline form-white mb-2">
+                                        <input type="text" id="typeNameX" class="form-control form-control-lg" />
+                                        <label class="form-label" for="typeNameX">Nombre</label>
+                                    </div>
+
+                                    <div data-mdb-input-init class="form-outline form-white mb-2">
+                                        <input type="email" id="typeEmailX" class="form-control form-control-lg" />
+                                        <label class="form-label" for="typeEmailX">Correo</label>
+                                    </div>
+
+                                    <div data-mdb-input-init class="form-outline form-white mb-2">
+                                        <input type="password" id="typePasswordX" class="form-control form-control-lg" />
+                                        <label class="form-label" for="typePasswordX">Contraseña</label>
+                                    </div>
+
+                                    <div data-mdb-input-init class="form-outline form-white mb-2">
+                                        <input type="password" id="typeConfirmPasswordX" class="form-control form-control-lg" />
+                                        <label class="form-label" for="typeConfirmPasswordX">Confirme Contraseña</label>
+                                    </div>
+
+                                    <div data-mdb-input-init class="form-outline form-white mb-2">
+                                        <input type="text" id="typeNumberX" class="form-control form-control-lg" />
+                                        <label class="form-label" for="typeNumberX">Número</label>
+                                    </div>
+
+                                    <button data-mdb-button-init data-mdb-ripple-init class="btn btn-outline-light btn-lg px-5" type="submit">Regístrate</button>
+
+                                </div>
+
+                                <div>
+                                    <p class="mb-0">Ya tiene una cuenta? <a href="#!" class="text-white-50 fw-bold">Inicia Sesión</a>
+                                    </p>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+
+
+
+
+    </body>
+</html>

@@ -1,0 +1,55 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to edit this template
+*/
+/* 
+    Created on : Nov 16, 2024, 5:46:01 PM
+    Author     : roger
+*/
+
+.bg-image{
+    background-image: url('/IMG/bg-img.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    
+}
+
+
+footer{
+    bottom: 0;
+}
+
+.content{
+    height: 80%;
+
+}
+
+.bg-color1{
+    background-color: rgba(242,46,119,0.9);
+}
+
+.contentSigninP{
+    height: 100%;
+}
+
+.habitaciones{
+    display: flex;
+    align-content: space-evenly;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+
+.card{
+    margin: 40px
+}
+
+.btn{
+    background-color: rgb(242,46,119);   
+}
+
+.btn ::hover{
+    background-color: rgba(242,46,119,0.9);   
+}
