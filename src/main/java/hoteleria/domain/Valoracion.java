@@ -22,4 +22,6 @@ public class Valoracion implements Serializable {
     private Date fecha;
     private boolean activo;
 
+   
+    
 }
