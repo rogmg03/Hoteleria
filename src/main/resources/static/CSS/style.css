@@ -53,3 +53,228 @@ footer{
 .btn ::hover{
     background-color: rgba(242,46,119,0.9);   
 }
+
+
+
+
+
+
+.card{
+
+	width: 350px;
+	border: none;
+
+	border-radius: 12px;
+}
+
+.circle-image img{
+
+	border: 6px solid #fff;
+    border-radius: 100%;
+    padding: 0px;
+    top: -28px;
+    position: relative;
+    width: 70px;
+    height: 70px;
+    border-radius: 100%;
+    z-index: 1;
+    background: #e7d184;
+    cursor: pointer;
+
+}
+
+
+.dot {
+      height: 18px;
+    width: 18px;
+    background-color: blue;
+    border-radius: 50%;
+    display: inline-block;
+    position: relative;
+    border: 3px solid #fff;
+    top: -48px;
+    left: 186px;
+    z-index: 1000;
+}
+
+.name{
+	margin-top: -21px;
+	font-size: 18px;
+}
+
+
+.fw-500{
+	font-weight: 500 !important;
+}
+
+
+.start{
+
+	color: green;
+}
+
+.stop{
+	color: red;
+}
+
+
+.rate{
+
+	border-bottom-right-radius: 12px;
+	border-bottom-left-radius: 12px;
+
+}
+
+
+
+.rating {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: center
+}
+
+.rating>input {
+    display: none
+}
+
+.rating>label {
+    position: relative;
+    width: 1em;
+    font-size: 30px;
+    font-weight: 300;
+    color: #FFD600;
+    cursor: pointer
+}
+
+.rating>label::before {
+    content: "\2605";
+    position: absolute;
+    opacity: 0
+}
+
+.rating>label:hover:before,
+.rating>label:hover~label:before {
+    opacity: 1 !important
+}
+
+.rating>input:checked~label:before {
+    opacity: 1
+}
+
+.rating:hover>input:checked~label:before {
+    opacity: 0.4
+}
+
+
+.buttons{
+	top: 36px;
+    position: relative;
+}
+
+
+.rating-submit{
+	border-radius: 15px;
+	color: #fff;
+	    height: 49px;
+}
+
+
+.rating-submit:hover{
+	
+	color: #fff;
+}
+
+
+
+.icon {  
+  float: right;
+  font-size:500%;
+  position: absolute;
+  top:0rem;
+  right:-0.3rem;
+  opacity: .16;
+}
+
+
+#container
+{
+  width: 1200px;
+  display: flex;
+}
+
+.grey-dark
+{
+  background: #495057;
+  color: #efefef;
+}
+
+.red-gradient {
+  background: linear-gradient(180deg, rgba(207,82,82,1) 0%, rgba(121,9,9,1) 80%);
+  color: #fff;
+}
+.red {
+  background: #a83b3b;
+  color: #fff;
+}
+
+
+.purple
+{
+  background: #886ab5;
+  color: #fff;
+}
+
+.orange {
+  background: #ffc241;
+  color: #fff;
+}
+
+.kpi-card
+{
+  overflow: hidden;
+  position: relative;
+  box-shadow: 1px 1px 3px rgba(0,0,0,0.75);;
+  display: inline-block;
+  float: left;
+  padding: 1em;
+  border-radius: 0.3em;
+  font-family: sans-serif;  
+  width: 240px;
+  min-width: 180px;
+  margin-left: 0.5em;
+  margin-top: 0.5em;
+}
+
+.card-value {
+  display: block;
+  font-size: 200%;  
+  font-weight: bolder;
+}
+
+.card-text {
+  display:block;
+  font-size: 70%;
+  padding-left: 0.2em;
+}
+
+footer{
+    background-color: black
+}
+
+.custom-card {
+            background-color: #f56342; /* Color similar to the one in your image */
+            color: white;
+            width: 150px;
+            height: 150px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 10px;
+        }
+        .custom-card-content {
+            text-align: center;
+        }
+        .custom-card-number {
+            font-size: 3em;
+            font-weight: bold;
+        }
