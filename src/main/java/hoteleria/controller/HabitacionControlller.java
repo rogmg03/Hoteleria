@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
 @Controller
-@RequestMapping("/Habitacion")
+@RequestMapping("/habitaciones")
 public class HabitacionControlller {
 
 @Autowired
@@ -24,7 +24,7 @@ public class HabitacionControlller {
         var lista = HabitacionService.getHabitaciones(false);
         model.addAttribute("Habitaciones", lista);
         model.addAttribute("totalHabitaciones", lista.size());
-        return "/Habitacion/listado";
+        return "/habitaciones/listado";
     }
 
     @Autowired
@@ -42,19 +42,19 @@ public class HabitacionControlller {
                             Habitacion.getIdHabitacion()));
         }
         HabitacionService.save(Habitacion);
-        return "redirect:/Habitacion/listado";
+        return "redirect:/habitaciones/listado";
     }
 
     @GetMapping("/eliminar/{idHabitacion}")
     public String HabitacionEliminar(Habitacion Habitacion) {
         HabitacionService.delete(Habitacion);
-        return "redirect:/Habitacion/listado";
+        return "redirect:/habitaciones/listado";
     }
 
     @GetMapping("/modificar/{idHabitacion}")
     public String HabitacionModificar(Habitacion Habitacion, Model model) {
         Habitacion = HabitacionService.getHabitacion(Habitacion);
         model.addAttribute("Habitacion", Habitacion);
-        return "/Habitacion/modifica";
+        return "/habitaciones/modifica";
     }
 }
