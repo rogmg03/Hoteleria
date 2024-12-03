@@ -3,21 +3,15 @@
 Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
 Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this template
 -->
-<html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
     <head>
         <title>TODO supply a title</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     </head>
     <body>
-
-
         <section th:fragment="listadoValoraciones" class="verValoraciones">
-            
-
-            
-            
-
             <div class="row">
                 <div class="card col-6">
                     <div class="row">
@@ -31,247 +25,236 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
 
                                 <div class="rating"> 
                                     <input type="radio" name="rating" value="5" id="5"><label for="5">☆</label>
-                                    <input type="radio" name="rating" value="4" id="4"><label for="4">☆</label> 
-                                    <input type="radio" name="rating" value="3" id="3"><label for="3">☆</label>
-                                    <input type="radio" name="rating" value="2" id="2"><label for="2">☆</label>
-                                    <input type="radio" name="rating" value="1" id="1"><label for="1">☆</label>
-                                </div>
+                                        <input type="radio" name="rating" value="4" id="4"><label for="4">☆</label> 
+                                            <input type="radio" name="rating" value="3" id="3"><label for="3">☆</label>
+                                                <input type="radio" name="rating" value="2" id="2"><label for="2">☆</label>
+                                                    <input type="radio" name="rating" value="1" id="1"><label for="1">☆</label>
+                                                        </div>
 
-                                <div class="comment-area">
-                                    <textarea class="form-control" placeholder="que piensas?" rows="4"></textarea>
-                                </div>
+                                                        <div class="comment-area">
+                                                            <textarea class="form-control" placeholder="que piensas?" rows="4"></textarea>
+                                                        </div>
 
-                                <div class="comment-btns mt-2">
-                                    <div class="row">
-                                        <div class="col-6">
-                                            <div class="pull-left">
-                                                <button class="btn btn-success btn-sm">Cancelar</button>      
-                                            </div>
-                                        </div>
-                                        <div class="col-6">
-                                            <div class="pull-right">
-                                                <button class="btn btn-success send btn-sm">Guardar<i class="fa fa-long-arrow-right ml-1"></i></button>      
-                                            </div>
+                                                        <div class="comment-btns mt-2">
+                                                            <div class="row">
+                                                                <div class="col-6">
+                                                                    <div class="pull-left">
+                                                                        <button class="btn btn-success btn-sm">Cancelar</button>      
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-6">
+                                                                    <div class="pull-right">
+                                                                        <button class="btn btn-success send btn-sm">Guardar<i class="fa fa-long-arrow-right ml-1"></i></button>      
+                                                                    </div>
 
-                                        </div>
+                                                                </div>
 
-                                    </div>
+                                                            </div>
 
-                                </div>
+                                                        </div>
+                                                        </div>
+                                                        </div>
+                                                        </div>
+                                                        </div>
 
+                                                        <div id="container" style="justify-content: space-between; margin: auto; width: 60%; " class="col-6">
+                                                            <div class="kpi-card orange">
+                                                                <span class="card-value">25 </span>
 
-                            </div>
+                                                                <span class="card-text">Total Valoraciones</span>
+                                                                <i class="fas  icon"></i>
+                                                            </div>
 
-                        </div>
-                    </div>
 
+                                                            <div class="kpi-card purple">
+                                                                <span class="card-value">4★</span>
+                                                                <span class="card-text">Valoracion Promedio</span>
+                                                                <i class="fas fa-shopping-cart icon"></i>
+                                                            </div>
 
+                                                            <div class="kpi-card grey-dark">
+                                                                <span class="card-value">85% </span>
+                                                                <span class="card-text">Porcentaje de respuesta</span>
+                                                                <i class="fas fa-shopping-cart icon"></i>
+                                                            </div>
 
-                </div>
+                                                        </div>
+                                                        <div class="container bg-color1 d-flex justify-content-center mt-5">
 
-                <div id="container" style="justify-content: space-between; margin: auto; width: 60%; " class="col-6">
-                    <div class="kpi-card orange">
-                        <span class="card-value">25 </span>
+                                                            <div class="card text-center mb-5">
 
-                        <span class="card-text">Total Valoraciones</span>
-                        <i class="fas  icon"></i>
-                    </div>
+                                                                <div class="circle-image">
+                                                                    <img src="https://i.imgur.com/hczKIze.jpg" width="50">
+                                                                </div>
 
+                                                                <span class="dot"></span>
 
-                    <div class="kpi-card purple">
-                        <span class="card-value">4★</span>
-                        <span class="card-text">Valoracion Promedio</span>
-                        <i class="fas fa-shopping-cart icon"></i>
-                    </div>
+                                                                <span class="name mb-1 fw-500">Nombre Usuario</span>
+                                                                <small class="text-black-50">Hotel</small>
+                                                                <small class="text-black-50 font-weight-bold">Fecha</small>
 
-                    <div class="kpi-card grey-dark">
-                        <span class="card-value">85% </span>
-                        <span class="card-text">Porcentaje de respuesta</span>
-                        <i class="fas fa-shopping-cart icon"></i>
-                    </div>
 
-                </div>
 
+                                                                <div class="location mt-4">
 
+                                                                    <span class="d-block"><i class="fa fa-map-marker start"></i> <small class="text-truncate ml-2">Comentarios: 
+                                                                            <p style="text-wrap: wrap; max-width: 250px; margin: auto">
+                                                                                Lorem ipsum dolor sit amet, 
+                                                                                consectetur adipisicing elit, 
+                                                                                sed do eiusmod tempor incididunt 
+                                                                                ut labore et dolore magna aliqua.
+                                                                            </p>
+                                                                        </small> </span>
 
 
+                                                                </div>
 
-                <div class="container bg-color1 d-flex justify-content-center mt-5">
 
-                    <div class="card text-center mb-5">
+                                                                <div class="rate bg-success py-3 text-white mt-3">
 
-                        <div class="circle-image">
-                            <img src="https://i.imgur.com/hczKIze.jpg" width="50">
-                        </div>
+                                                                    <h6 class="mb-0">Calificacion</h6>
 
-                        <span class="dot"></span>
+                                                                    <div class="rating"> 
+                                                                        <input type="radio" name="rating" value="5" id="5"><label for="5">☆</label> 
+                                                                            <input type="radio" name="rating" value="4" id="4"><label for="4">☆</label>
+                                                                                <input type="radio" name="rating" value="3" id="3"><label for="3">☆</label> 
+                                                                                    <input type="radio" name="rating" value="2" id="2"><label for="2">☆</label> 
+                                                                                        <input type="radio" name="rating" value="1" id="1"><label for="1">☆</label>
+                                                                                            </div>
 
-                        <span class="name mb-1 fw-500">Nombre Usuario</span>
-                        <small class="text-black-50">Hotel</small>
-                        <small class="text-black-50 font-weight-bold">Fecha</small>
 
+                                                                                            <div class="buttons px-4 mt-0">
 
+                                                                                                <button class="btn btn-warning btn-block rating-submit">Guardar</button>
+                                                                                                <button class="btn btn-warning btn-block rating-submit">Eliminar</button>
+                                                                                            </div>
 
-                        <div class="location mt-4">
 
-                            <span class="d-block"><i class="fa fa-map-marker start"></i> <small class="text-truncate ml-2">Comentarios: 
-                                    <p style="text-wrap: wrap; max-width: 250px; margin: auto">
-                                        Lorem ipsum dolor sit amet, 
-                                        consectetur adipisicing elit, 
-                                        sed do eiusmod tempor incididunt 
-                                        ut labore et dolore magna aliqua.
-                                    </p>
-                                </small> </span>
+                                                                                            </div>
 
 
-                        </div>
 
 
-                        <div class="rate bg-success py-3 text-white mt-3">
 
-                            <h6 class="mb-0">Calificacion</h6>
 
-                            <div class="rating"> 
-                                <input type="radio" name="rating" value="5" id="5"><label for="5">☆</label> 
-                                <input type="radio" name="rating" value="4" id="4"><label for="4">☆</label>
-                                <input type="radio" name="rating" value="3" id="3"><label for="3">☆</label> 
-                                <input type="radio" name="rating" value="2" id="2"><label for="2">☆</label> 
-                                <input type="radio" name="rating" value="1" id="1"><label for="1">☆</label>
-                            </div>
+                                                                                            </div>
 
+                                                                                            <div class="card text-center mb-5">
 
-                            <div class="buttons px-4 mt-0">
+                                                                                                <div class="circle-image">
+                                                                                                    <img src="https://i.imgur.com/hczKIze.jpg" width="50">
+                                                                                                </div>
 
-                                <button class="btn btn-warning btn-block rating-submit">Guardar</button>
-                                <button class="btn btn-warning btn-block rating-submit">Eliminar</button>
-                            </div>
+                                                                                                <span class="dot"></span>
 
+                                                                                                <span class="name mb-1 fw-500">Nombre Usuario</span>
+                                                                                                <small class="text-black-50">Hotel</small>
+                                                                                                <small class="text-black-50 font-weight-bold">Fecha</small>
 
-                        </div>
 
 
+                                                                                                <div class="location mt-4">
 
+                                                                                                    <span class="d-block"><i class="fa fa-map-marker start"></i> <small class="text-truncate ml-2">Comentarios: 
+                                                                                                            <p style="text-wrap: wrap; max-width: 250px; margin: auto">
+                                                                                                                Lorem ipsum dolor sit amet, 
+                                                                                                                consectetur adipisicing elit, 
+                                                                                                                sed do eiusmod tempor incididunt 
+                                                                                                                ut labore et dolore magna aliqua.
+                                                                                                            </p>
+                                                                                                        </small> </span>
 
 
+                                                                                                </div>
 
-                    </div>
 
-                    <div class="card text-center mb-5">
+                                                                                                <div class="rate bg-success py-3 text-white mt-3">
 
-                        <div class="circle-image">
-                            <img src="https://i.imgur.com/hczKIze.jpg" width="50">
-                        </div>
+                                                                                                    <h6 class="mb-0">Calificacion</h6>
 
-                        <span class="dot"></span>
+                                                                                                    <div class="rating"> 
+                                                                                                        <input type="radio" name="rating" value="5" id="5"><label for="5">☆</label> 
+                                                                                                            <input type="radio" name="rating" value="4" id="4"><label for="4">☆</label>
+                                                                                                                <input type="radio" name="rating" value="3" id="3"><label for="3">☆</label> 
+                                                                                                                    <input type="radio" name="rating" value="2" id="2"><label for="2">☆</label> 
+                                                                                                                        <input type="radio" name="rating" value="1" id="1"><label for="1">☆</label>
+                                                                                                                            </div>
 
-                        <span class="name mb-1 fw-500">Nombre Usuario</span>
-                        <small class="text-black-50">Hotel</small>
-                        <small class="text-black-50 font-weight-bold">Fecha</small>
 
+                                                                                                                            <div class="buttons px-4 mt-0">
 
+                                                                                                                                <button class="btn btn-warning btn-block rating-submit">Guardar</button>
+                                                                                                                                <button class="btn btn-warning btn-block rating-submit">Eliminar</button>
+                                                                                                                            </div>
 
-                        <div class="location mt-4">
 
-                            <span class="d-block"><i class="fa fa-map-marker start"></i> <small class="text-truncate ml-2">Comentarios: 
-                                    <p style="text-wrap: wrap; max-width: 250px; margin: auto">
-                                        Lorem ipsum dolor sit amet, 
-                                        consectetur adipisicing elit, 
-                                        sed do eiusmod tempor incididunt 
-                                        ut labore et dolore magna aliqua.
-                                    </p>
-                                </small> </span>
+                                                                                                                            </div>
 
 
-                        </div>
 
 
-                        <div class="rate bg-success py-3 text-white mt-3">
 
-                            <h6 class="mb-0">Calificacion</h6>
 
-                            <div class="rating"> 
-                                <input type="radio" name="rating" value="5" id="5"><label for="5">☆</label> 
-                                <input type="radio" name="rating" value="4" id="4"><label for="4">☆</label>
-                                <input type="radio" name="rating" value="3" id="3"><label for="3">☆</label> 
-                                <input type="radio" name="rating" value="2" id="2"><label for="2">☆</label> 
-                                <input type="radio" name="rating" value="1" id="1"><label for="1">☆</label>
-                            </div>
+                                                                                                                            </div>
 
+                                                                                                                            <div class="card text-center mb-5">
 
-                            <div class="buttons px-4 mt-0">
+                                                                                                                                <div class="circle-image">
+                                                                                                                                    <img src="https://i.imgur.com/hczKIze.jpg" width="50">
+                                                                                                                                </div>
 
-                                <button class="btn btn-warning btn-block rating-submit">Guardar</button>
-                                <button class="btn btn-warning btn-block rating-submit">Eliminar</button>
-                            </div>
+                                                                                                                                <span class="dot"></span>
 
+                                                                                                                                <span class="name mb-1 fw-500">Nombre Usuario</span>
+                                                                                                                                <small class="text-black-50">Hotel</small>
+                                                                                                                                <small class="text-black-50 font-weight-bold">Fecha</small>
 
-                        </div>
 
 
+                                                                                                                                <div class="location mt-4">
 
+                                                                                                                                    <span class="d-block"><i class="fa fa-map-marker start"></i> <small class="text-truncate ml-2">Comentarios: 
+                                                                                                                                            <p style="text-wrap: wrap; max-width: 250px; margin: auto">
+                                                                                                                                                Lorem ipsum dolor sit amet, 
+                                                                                                                                                consectetur adipisicing elit, 
+                                                                                                                                                sed do eiusmod tempor incididunt 
+                                                                                                                                                ut labore et dolore magna aliqua.
+                                                                                                                                            </p>
+                                                                                                                                        </small> </span>
 
 
+                                                                                                                                </div>
 
-                    </div>
 
-                    <div class="card text-center mb-5">
+                                                                                                                                <div class="rate bg-success py-3 text-white mt-3">
 
-                        <div class="circle-image">
-                            <img src="https://i.imgur.com/hczKIze.jpg" width="50">
-                        </div>
+                                                                                                                                    <h6 class="mb-0">Calificacion</h6>
 
-                        <span class="dot"></span>
+                                                                                                                                    <div class="rating"> 
+                                                                                                                                        <input type="radio" name="rating" value="5" id="5"><label for="5">☆</label> 
+                                                                                                                                            <input type="radio" name="rating" value="4" id="4"><label for="4">☆</label>
+                                                                                                                                                <input type="radio" name="rating" value="3" id="3"><label for="3">☆</label> 
+                                                                                                                                                    <input type="radio" name="rating" value="2" id="2"><label for="2">☆</label> 
+                                                                                                                                                        <input type="radio" name="rating" value="1" id="1"><label for="1">☆</label>
+                                                                                                                                                            </div>
 
-                        <span class="name mb-1 fw-500">Nombre Usuario</span>
-                        <small class="text-black-50">Hotel</small>
-                        <small class="text-black-50 font-weight-bold">Fecha</small>
 
+                                                                                                                                                            <div class="buttons px-4 mt-0">
 
+                                                                                                                                                                <button class="btn btn-warning btn-block rating-submit">Guardar</button>
+                                                                                                                                                                <button class="btn btn-warning btn-block rating-submit">Eliminar</button>
+                                                                                                                                                            </div>
+                                                                                                                                                            </div>
+                                                                                                                                                            </div>
 
-                        <div class="location mt-4">
+                                                                                                                                                            </div>
 
-                            <span class="d-block"><i class="fa fa-map-marker start"></i> <small class="text-truncate ml-2">Comentarios: 
-                                    <p style="text-wrap: wrap; max-width: 250px; margin: auto">
-                                        Lorem ipsum dolor sit amet, 
-                                        consectetur adipisicing elit, 
-                                        sed do eiusmod tempor incididunt 
-                                        ut labore et dolore magna aliqua.
-                                    </p>
-                                </small> </span>
+                                                                                                                                                            </div>
 
+                                                                                                                                                            </section>
 
-                        </div>
 
 
-                        <div class="rate bg-success py-3 text-white mt-3">
 
-                            <h6 class="mb-0">Calificacion</h6>
-
-                            <div class="rating"> 
-                                <input type="radio" name="rating" value="5" id="5"><label for="5">☆</label> 
-                                <input type="radio" name="rating" value="4" id="4"><label for="4">☆</label>
-                                <input type="radio" name="rating" value="3" id="3"><label for="3">☆</label> 
-                                <input type="radio" name="rating" value="2" id="2"><label for="2">☆</label> 
-                                <input type="radio" name="rating" value="1" id="1"><label for="1">☆</label>
-                            </div>
-
-
-                            <div class="buttons px-4 mt-0">
-
-                                <button class="btn btn-warning btn-block rating-submit">Guardar</button>
-                                <button class="btn btn-warning btn-block rating-submit">Eliminar</button>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-
-
-    </body>
-</html>
+                                                                                                                                                            </body>
+                                                                                                                                                            </html>

@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 
 @Controller
-@RequestMapping("/Valoracion")
+@RequestMapping("/valoraciones")
 public class ValoracionController {
 
     @Autowired
@@ -23,7 +23,7 @@ public class ValoracionController {
         var lista = ValoracionService.getValoraciones(false);
         model.addAttribute("Valoraciones", lista);
         model.addAttribute("totalValoraciones", lista.size());
-        return "/Valoracion/listado";
+        return "/valoraciones/listado";
     }
 
     @Autowired
@@ -32,19 +32,19 @@ public class ValoracionController {
     @PostMapping("/guardar")
     public String ValoracionGuardar(Valoracion Valoracion) {
         ValoracionService.save(Valoracion);
-        return "redirect:/Valoracion/listado";
+        return "redirect:/valoraciones/listado";
     }
 
     @GetMapping("/eliminar/{idValoracion}")
     public String ValoracionEliminar(Valoracion Valoracion) {
         ValoracionService.delete(Valoracion);
-        return "redirect:/Valoracion/listado";
+        return "redirect:/valoraciones/listado";
     }
 
     @GetMapping("/modificar/{idValoracion}")
     public String ValoracionModificar(Valoracion Valoracion, Model model) {
         Valoracion = ValoracionService.getValoracion(Valoracion);
         model.addAttribute("Valoracion", Valoracion);
-        return "/Valoracion/modifica";
+        return "/valoraciones/modifica";
     }
 }

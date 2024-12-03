@@ -18,102 +18,414 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
             </div>
 
             <div class="card" style="width: 18rem;">
-                <img th:src="@{/IMG/room1.jpg}" class="card-img-top" >
+                <img th:src="@{/IMG/room1.jpg}" class="card-img-top" />
 
                 <div class="card-body">
-                    <h5 class="card-title">Hotel</h5>
+                    <h5 class="card-title">Habitación Individual</h5>
                 </div>
                 <ul class="list-group list-group-flush">
-                    <li class="list-group-item">Precio</li>
-                    <li class="list-group-item">Tipo</li>
-                    <li class="list-group-item">Piso</li>
+                    <li class="list-group-item">Numero: </li>
+                    <li class="list-group-item">Piso: </li>
+                    <li class="list-group-item">Tipo: </li>
+                    <li class="list-group-item">Disponible: </li>
+                    <li class="list-group-item">Precio: </li>
                 </ul>
-                <div class="card-body">
-                    <button data-mdb-button-init data-mdb-ripple-init class="btn btn-outline-light btn-lg px-5" type="submit">Reservar</button>
+                <div class="card-body" style="display: flex; justify-content: center; flex-wrap: nowrap">
+                    <button
+                        class="btn btn-outline-light btn-lg px-5" 
+                        type="button" 
+                        data-bs-toggle="modal" 
+                        data-bs-target="#reservarHabitacion"><i class="fas fa-check"></i>Reservar</button>
+                    <button
+                        class="btn btn-outline-light btn-lg px-5" 
+                        type="button" 
+                        data-bs-toggle="modal" 
+                        data-bs-target="#editarHabitacion"><i class="fas fa-check"></i>Editar</button>
                 </div>
-
             </div>
             <div class="card" style="width: 18rem;">
-                <img th:src="@{/IMG/room1.jpg}" class="card-img-top" >
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    </div>
-                    <ul class="list-group list-group-flush">
-                        <li class="list-group-item">An item</li>
-                        <li class="list-group-item">A second item</li>
-                        <li class="list-group-item">A third item</li>
-                    </ul>
-                    <div class="card-body">
-                        <button data-mdb-button-init data-mdb-ripple-init class="btn btn-outline-light btn-lg px-5" type="submit">Reservar</button>
-                    </div>
+                <img th:src="@{/IMG/room1.jpg}" class="card-img-top"/>
+                <div class="card-body">
+                    <h5 class="card-title">Habitación Doble</h5>
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">Numero: </li>
+                    <li class="list-group-item">Piso: </li>
+                    <li class="list-group-item">Tipo: </li>
+                    <li class="list-group-item">Disponible: </li>
+                    <li class="list-group-item">Precio: </li>
+                </ul>
+                <div class="card-body" style="display: flex; justify-content: center; flex-wrap: nowrap">
+                    <button
+                        class="btn btn-outline-light btn-lg px-5"
+                        type="button" 
+                        data-bs-toggle="modal" 
+                        data-bs-target="#reservarHabitacion"><i class="fas fa-check"></i>Reservar</button>
+                    <button
+                        class="btn btn-outline-light btn-lg px-5" 
+                        type="button" 
+                        data-bs-toggle="exampleModalLabel" 
+                        data-bs-target="#editarHabitacion"><i class="fas fa-check"></i>Editar</button>
+                </div>
             </div>
             <div class="card" style="width: 18rem;">
-                <img th:src="@{/IMG/room1.jpg}" class="card-img-top" >
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    </div>
-                    <ul class="list-group list-group-flush">
-                        <li class="list-group-item">An item</li>
-                        <li class="list-group-item">A second item</li>
-                        <li class="list-group-item">A third item</li>
-                    </ul>
-                    <div class="card-body">
-                        <button data-mdb-button-init data-mdb-ripple-init class="btn btn-outline-light btn-lg px-5" type="submit">Reservar</button>
-                    </div>
-            </div>
-
-
-            <div class="card" style="width: 18rem;">
-                <img th:src="@{/IMG/room1.jpg}" class="card-img-top" >
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    </div>
-                    <ul class="list-group list-group-flush">
-                        <li class="list-group-item">An item</li>
-                        <li class="list-group-item">A second item</li>
-                        <li class="list-group-item">A third item</li>
-                    </ul>
-                    <div class="card-body">
-                        <a href="#" class="card-link">Card link</a>
-                        <a href="#" class="card-link">Another link</a>
-                    </div>
+                <img th:src="@{/IMG/room1.jpg}" class="card-img-top"/>
+                <div class="card-body">
+                    <h5 class="card-title">Habitación Triple</h5>
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">Numero: </li>
+                    <li class="list-group-item">Piso: </li>
+                    <li class="list-group-item">Tipo: </li>
+                    <li class="list-group-item">Disponible: </li>
+                    <li class="list-group-item">Precio: </li>
+                </ul>
+                <div class="card-body" style="display: flex; justify-content: center; flex-wrap: nowrap">
+                    <button
+                        class="btn btn-outline-light btn-lg px-5" 
+                        type="button" 
+                        data-bs-toggle="modal" 
+                        data-bs-target="#reservarHabitacion"><i class="fas fa-check"></i>Reservar</button>
+                    <button
+                        class="btn btn-outline-light btn-lg px-5" 
+                        type="button" 
+                        data-bs-toggle="modal" 
+                        data-bs-target="#editarHabitacion"><i class="fas fa-check"></i>Editar</button>
+                </div>
             </div>
             <div class="card" style="width: 18rem;">
-                <img th:src="@{/IMG/room1.jpg}" class="card-img-top" >
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    </div>
-                    <ul class="list-group list-group-flush">
-                        <li class="list-group-item">An item</li>
-                        <li class="list-group-item">A second item</li>
-                        <li class="list-group-item">A third item</li>
-                    </ul>
-                    <div class="card-body">
-                        <a href="#" class="card-link">Card link</a>
-                        <a href="#" class="card-link">Another link</a>
-                    </div>
+                <img th:src="@{/IMG/room1.jpg}" class="card-img-top"/>
+                <div class="card-body">
+                    <h5 class="card-title">Habitación Cuádruple</h5>
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">Numero: </li>
+                    <li class="list-group-item">Piso: </li>
+                    <li class="list-group-item">Tipo: </li>
+                    <li class="list-group-item">Disponible: </li>
+                    <li class="list-group-item">Precio: </li>
+                </ul>
+                <div class="card-body" style="display: flex; justify-content: center; flex-wrap: nowrap">
+                    <button
+                        class="btn btn-outline-light btn-lg px-5" 
+                        type="button" 
+                        data-bs-toggle="modal" 
+                        data-bs-target="#reservarHabitacion"><i class="fas fa-check"></i>Reservar</button>
+                    <button
+                        class="btn btn-outline-light btn-lg px-5" 
+                        type="button" 
+                        data-bs-toggle="modal" 
+                        data-bs-target="#editarHabitacion"><i class="fas fa-check"></i>Editar</button>
+                </div>
             </div>
             <div class="card" style="width: 18rem;">
-                <img th:src="@{/IMG/room1.jpg}" class="card-img-top" >
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                <img th:src="@{/IMG/room1.jpg}" class="card-img-top"/>
+                <div class="card-body">
+                    <h5 class="card-title">Suite</h5>
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">Numero: </li>
+                    <li class="list-group-item">Piso: </li>
+                    <li class="list-group-item">Tipo: </li>
+                    <li class="list-group-item">Disponible: </li>
+                    <li class="list-group-item">Precio: </li>
+                </ul>
+                <div class="card-body" style="display: flex; justify-content: center; flex-wrap: nowrap">
+                    <button
+                        class="btn btn-outline-light btn-lg px-5" 
+                        type="button" 
+                        data-bs-toggle="modal" 
+                        data-bs-target="#reservarHabitacion"><i class="fas fa-check"></i>Reservar</button>
+                    <button
+                        class="btn btn-outline-light btn-lg px-5" 
+                        type="button" 
+                        data-bs-toggle="modal" 
+                        data-bs-target="#editarHabitacion"><i class="fas fa-check"></i>Editar</button>
+                </div>
+            </div>
+            <div class="card" style="width: 18rem;">
+                <img th:src="@{/IMG/room1.jpg}" class="card-img-top"/>
+                <div class="card-body">
+                    <h5 class="card-title">Junior Suite</h5>
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">Numero: </li>
+                    <li class="list-group-item">Piso: </li>
+                    <li class="list-group-item">Tipo: </li>
+                    <li class="list-group-item">Disponible: </li>
+                    <li class="list-group-item">Precio: </li>
+                </ul>
+                <div class="card-body" style="display: flex; justify-content: center; flex-wrap: nowrap">
+                    <button
+                        class="btn btn-outline-light btn-lg px-5" 
+                        type="button" 
+                        data-bs-toggle="modal" 
+                        data-bs-target="#reservarHabitacion"><i class="fas fa-check"></i>Reservar</button>
+                    <button
+                        class="btn btn-outline-light btn-lg px-5" 
+                        type="button" 
+                        data-bs-toggle="modal" 
+                        data-bs-target="#editarHabitacion"><i class="fas fa-check"></i>Editar</button>
+                </div>
+            </div>
+        </section>
+        <!-- 1 Sección para crear el boton de agregar... llamará a una ventana modal-->
+        <section th:fragment="botonesAgregar" class="py-4 mb-4 bg-light">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-3">   
+                        <button 
+                            sec:authorize="hasRole('ROLE_ADMIN')"
+                            type="button" 
+                            class="btn btn-primary btn-block" 
+                            data-bs-toggle="modal" 
+                            data-bs-target="#agregarHabitacion">
+                            <i class="fas fa-plus"></i> [[#{habitacion.agregar}]]
+                        </button>
                     </div>
-                    <ul class="list-group list-group-flush">
-                        <li class="list-group-item">An item</li>
-                        <li class="list-group-item">A second item</li>
-                        <li class="list-group-item">A third item</li>
-                    </ul>
-                    <div class="card-body">
-                        <a href="#" class="card-link">Card link</a>
-                        <a href="#" class="card-link">Another link</a>
-                    </div>
+                </div>
             </div>
         </section>
 
+        <!-- 2 Fragmento para agregar usuario, es la ventana modal -->
+        <section th:fragment="agregarHabitacion">
+            <div id="agregarHabitacion" 
+                 class="modal fade" 
+                 tabindex="-1" 
+                 aria-labelledby="exampleModalLabel" 
+                 aria-hidden="true">
+                <div class="modal-dialog modal-md">
+                    <div class="modal-content">
+                        <div class="modal-header bg-info text-white">
+                            <h5 class="modal-title">[[#{habitacion.agregar}]]</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div> 
+                        <form th:action="@{/habitacion/guardar}"
+                              th:object="${habitacion}"
+                              method="POST" 
+                              class="was-validated" 
+                              enctype="multipart/form-data">
+                            <div class="modal-body">
+                                <div class="mb-3">
+                                    <label for="numero">[[#{habitacion.numero}]]</label>
+                                    <input type="number" class="form-control" 
+                                           name="numero" required="true"/>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="piso">[[#{habitacion.piso}]]</label>
+                                    <input type="number" class="form-control" 
+                                           name="piso" required="true"/>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="tipo">[[#{habitacion.tipo}]]</label>
+                                    <input type="text" class="form-control" 
+                                           name="tipo" required="true"/>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="precio">[[#{habitacion.precio}]]</label>
+                                    <input type="number" class="form-control" 
+                                           name="precio" required="true"/>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="disponible">[[#{habitacion.disponible}]]</label>
+                                    <input type="checkbox" class="form-control" 
+                                           name="disponible" required="true"/>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="activo">[[#{habitacion.activo}]]</label>
+                                    <input class="form-check-input" type="checkbox" 
+                                           name="activo" id="activo"/>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="imagen">[[#{habitacion.rutaImagen}]]</label>
+                                    <input class="form-control" 
+                                           type="file" 
+                                           name="imagenFile" 
+                                           onchange="readURL(this);"/>
+                                    <img id="blah" src="#" alt="your image" height="200"/>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button class="btn btn-primary" type="submit">Guardar</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2 Fragmento para agregar usuario, es la ventana modal -->
+        <section th:fragment="reservarHabitacion">
+            <div id="reservarHabitacion" 
+                 class="modal fade" 
+                 tabindex="-1" 
+                 aria-labelledby="exampleModalLabel" 
+                 aria-hidden="true">
+                <div class="modal-dialog modal-md">
+                    <div class="modal-content">
+                        <div class="modal-header bg-info text-white">
+                            <h5 class="modal-title">[[#{habitacion.reservar}]]</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div> 
+                        <form th:action="@{/habitacion/guardar}"
+                              th:object="${habitacion}"
+                              method="POST" 
+                              class="was-validated" 
+                              enctype="multipart/form-data">
+                            <form th:action="@{/habitacion/guardar}"
+                                  th:object="${habitacion}"
+                                  method="POST" 
+                                  class="was-validated" 
+                                  enctype="multipart/form-data">
+                                <div class="modal-body">
+                                    <div class="mb-3">
+                                        <label for="fechaInicio">Fecha Inicio</label>
+                                        <input type="date" class="form-control" 
+                                               name="fechaInicio" required="true"/>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="fechaFin">Fecha fin</label>
+                                        <input type="date" class="form-control" 
+                                               name="fechaFin" required="true"/>
+                                    </div>
+                                </div>
+                                <h4>Servicios</h4>
+                                <ul class="list-group">
+                                    <li class="list-group-item">
+                                        <input class="form-check-input me-1" type="checkbox" value="" aria-label="...">
+                                            First checkbox
+                                    </li>
+                                    <li class="list-group-item">
+                                        <input class="form-check-input me-1" type="checkbox" value="" aria-label="...">
+                                            Second checkbox
+                                    </li>
+                                    <li class="list-group-item">
+                                        <input class="form-check-input me-1" type="checkbox" value="" aria-label="...">
+                                            Third checkbox
+                                    </li>
+                                    <li class="list-group-item">
+                                        <input class="form-check-input me-1" type="checkbox" value="" aria-label="...">
+                                            Fourth checkbox
+                                    </li>
+                                    <li class="list-group-item">
+                                        <input class="form-check-input me-1" type="checkbox" value="" aria-label="...">
+                                            Fifth checkbox
+                                    </li>
+                                </ul>
+                            </form>
+                            <div class="modal-footer">
+                                <button class="btn btn-primary" type="submit">Guardar</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4 Fragmento que se utiliza en la página modifca.html -->
+        <section th:fragment="editarHabitacion">
+            <div id="editarHabitacion" 
+                 class="modal fade" 
+                 tabindex="-1" 
+                 aria-labelledby="exampleModalLabel" 
+                 aria-hidden="true">
+                <div class="modal-dialog modal-md">
+                    <div class="modal-content">
+                        <div class="modal-header bg-info text-white">
+                            <h5 class="modal-title">Editar Habitacion</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <form method="POST"
+                              th:action="@{/habitacion/guardar}" 
+                              th:object="${habitacion}"
+                              class="was-validated"                          
+                              enctype="multipart/form-data">
+                            <div class="modal-body">
+                                <input type="hidden" name="idHabitacion" th:field="*{idHabitacion}"/>
+                                <input type="hidden" name="rutaImagen" th:field="*{rutaImagen}"/>
+                                <section th:replace="~{habitaciones/fragmentos :: botonesEditar}"/>
+                                <div id=details>
+                                    <div class="container">
+                                        <div class="row">
+                                            <div class="col">
+                                                <div class="card">
+                                                    <div class="card-header">
+                                                        <h4>[[#{accion.actualizar}]]</h4>
+                                                    </div>
+                                                    <div class="card-body">
+                                                        <div class="mb-3">
+                                                            <label for="numero">[[#{habitacion.numero}]]</label>
+                                                            <input type="number" class="form-control" 
+                                                                   name="numero" th:field="*{numero}"
+                                                                   required="true">
+                                                        </div>
+                                                        <div class="mb-3">
+                                                            <label for="piso">[[#{habitacion.piso}]]</label>
+                                                            <input type="number" class="form-control" 
+                                                                   name="piso" th:field="*{piso}"
+                                                                   required="true">
+                                                        </div>
+                                                        <div class="mb-3">
+                                                            <label for="tipo">[[#{habitacion.tipo}]]</label>
+                                                            <input type="text" class="form-control" 
+                                                                   name="tipo" th:field="*{tipo}"
+                                                                   required="true">
+                                                        </div>
+                                                        <div class="mb-3">
+                                                            <label for="precio">[[#{habitacion.precio}]]</label>
+                                                            <input type="number" class="form-control" 
+                                                                   name="precio" th:field="*{precio}"
+                                                                   required="true">
+                                                        </div>
+                                                        <div class="mb-3">
+                                                            <label for="disponible">[[#{habitacion.disponibilidad}]]</label>
+                                                            <input type="checkbox" class="form-control" 
+                                                                   name="disponible" th:field="*{disponible}"
+                                                                   required="true">
+                                                        </div>
+                                                        <div class="mb-3">
+                                                            <label for="activo">[[#{habitacion.activo}]]</label>
+                                                            <input class="form-check-input" 
+                                                                   type="checkbox" 
+                                                                   name="activo" 
+                                                                   id="activo"
+                                                                   th:field="*{activo}">
+                                                        </div>
+                                                        <div class="mb-3">
+                                                            <label for="imagen">[[#{habitacion.rutaImagen}]]</label>
+                                                            <input class="form-control" type="file" name="imagenFile"
+                                                                   onchange="readURL(this);" />
+                                                            <img id="blah" th:src="@{${habitacion.rutaImagen}}" alt="your image" height="200"/>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5 Fragmento que se utiliza en el fragmento anterior -->
+        <section th:fragment="botonesEditar">
+            <div class="container py-4 mb-4 bg-light">
+                <div class="row">
+                    <div class="col-md-4 d-grid">
+                        <a th:href="@{/habitaciones/listado}" class="btn btn-primary">
+                            <i class="fas fa-arrow-left"></i> [[#{accion.regresar}]]
+                        </a>
+                    </div>
+                    <div class="col-md-4 d-grid">
+                        <button type="submit" class="btn btn-success">
+                            <i class="fas fa-check"></i> [[#{accion.guardar}]]
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
     </body>
 </html>

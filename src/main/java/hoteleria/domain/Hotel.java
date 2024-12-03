@@ -15,6 +15,7 @@ public class Hotel implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idHotel;
     private String nombre;
+    private String descripcion;
     private String direccion;
     private String telefono;
     private String email;
