@@ -8,14 +8,9 @@
     <body>
         <header th:replace="~{layout/plantilla :: header}"/>
 
-        <section th:replace="~{habitaciones/fragmentos :: botonesAgregar}"/>
-        <section th:replace="~{habitaciones/fragmentos :: agregarHabitacion}"/>
-        <section th:replace="~{habitaciones/fragmentos :: reservarHabitacion}"/>
-        <section th:replace="~{habitaciones/fragmentos :: listadoHabitaciones}"/>
-
+        <section th:replace="~{mantenimientos/fragmentos :: listadoMantenimientos}"/>
+        <section th:replace="~{mantenimientos/fragmentos :: listadoLimpiezas}"/>
+        
         <footer th:replace="~{layout/plantilla :: footer}"/>
-
-
     </body>
-
 </html>

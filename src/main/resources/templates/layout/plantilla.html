@@ -9,12 +9,12 @@
         <link th:href="@{/webjars/bootstrap/css/bootstrap.min.css}" rel="stylesheet"/>
         <link th:href="@{/webjars/font-awaseome/css/all.min.css}" rel="stylesheet"/>
         <link rel="stylesheet" th:href="@{/css/style.css}">
-        <link href="css/style.css" rel="stylesheet" type="text/css"/>
-        <script th:src="@{/webjars/jquery/jquery.min.js}"></script>
-        <script th:src="@{/webjars/popper.js/umd/popper.min.js}"></script>
-        <script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
-        
-        <!-- @{} fuera de nuestro sitio web-->
+            <link href="css/style.css" rel="stylesheet" type="text/css"/>
+            <script th:src="@{/webjars/jquery/jquery.min.js}"></script>
+            <script th:src="@{/webjars/popper.js/umd/popper.min.js}"></script>
+            <script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+
+            <!-- @{} fuera de nuestro sitio web-->
     </head>
     <body>
         <header th:fragment="header" class="header">
@@ -34,16 +34,16 @@
                                 <a th:href="@{/usuario/listado}" class="nav-link">[[#{plantilla.usuarios}]]</a>
                             </li>
                             <li class="nav-item px-2">
-                                <a th:href="@{/mantenimiento/listado}" class="nav-link">[[#{plantilla.mantenimiento}]]</a>
-                            </li> 
-                             <li class="nav-item px-2">
-                                <a th:href="@{/comentarios}" class="nav-link">[[#{plantilla.comentarios}]]</a>
+                                <a th:href="@{/mantenimientos/listado}" class="nav-link">[[#{plantilla.mantenimiento}]]</a>
                             </li>
                             <li class="nav-item px-2">
-                                <a th:href="@{/reservas}" class="nav-link">[[#{plantilla.reservas}]]</a>
+                                <a th:href="@{/valoraciones/listado}" class="nav-link">[[#{plantilla.comentarios}]]</a>
+                            </li>
+                            <li class="nav-item px-2">
+                                <a th:href="@{/reservaciones/listado}" class="nav-link">[[#{plantilla.reservas}]]</a>
                             </li>
                         </ul>
-                         <ul class="navbar-nav">
+                        <ul class="navbar-nav">
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" 
                                    aria-expanded="false">[[#{plantilla.idioma}]]</a>
@@ -55,7 +55,7 @@
                                 </ul>
                             </li>
                         </ul>
-                        
+
                     </div>
                 </div>
             </nav>

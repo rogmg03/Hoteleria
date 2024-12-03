@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping("/Reservas")
+@RequestMapping("/reservaciones")
 public class ReservasController {
 
     @Autowired
@@ -22,7 +22,7 @@ public class ReservasController {
         var lista = ReservasService.getReservaciones(false);
         model.addAttribute("Reservass", lista);
         model.addAttribute("totalReservass", lista.size());
-        return "/Reservas/listado";
+        return "/reservaciones/listado";
     }
 
     @Autowired
@@ -31,19 +31,19 @@ public class ReservasController {
     @PostMapping("/guardar")
     public String ReservasGuardar(Reservas Reservas) {
         ReservasService.save(Reservas);
-        return "redirect:/Reservas/listado";
+        return "redirect:/reservaciones/listado";
     }
 
     @GetMapping("/eliminar/{idReservas}")
     public String ReservasEliminar(Reservas Reservas) {
         ReservasService.delete(Reservas);
-        return "redirect:/Reservas/listado";
+        return "redirect:/reservaciones/listado";
     }
 
     @GetMapping("/modificar/{idReservas}")
     public String ReservasModificar(Reservas Reservas, Model model) {
         Reservas = ReservasService.getReservas(Reservas);
         model.addAttribute("Reservas", Reservas);
-        return "/Reservas/modifica";
+        return "/reservaciones/modifica";
     }
 }
