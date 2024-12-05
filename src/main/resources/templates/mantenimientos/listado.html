@@ -8,8 +8,21 @@
     <body>
         <header th:replace="~{layout/plantilla :: header}"/>
 
-        <section th:replace="~{mantenimientos/fragmentos :: listadoMantenimientos}"/>
-        <section th:replace="~{mantenimientos/fragmentos :: listadoLimpiezas}"/>
+        <div class="row">
+                <div class="verMantenimientos col-md-6">
+                    <h2>Mantenimientos</h1>
+                    <section th:replace="~{mantenimientos/fragmentos :: botonesAgregar}"/>
+                    <section th:replace="~{mantenimientos/fragmentos :: agregarMantenimiento}"/>
+                    <section th:replace="~{mantenimientos/fragmentos :: listadoMantenimientos}"/>
+                    
+                </div>
+                <div class="verLimpiezas col-md-6">
+                    <h2>Limpieza</h1>
+                    <section th:replace="~{mantenimientos/fragmentos :: botonesAgregar2}"/>
+                    <section th:replace="~{mantenimientos/fragmentos :: agregarLimpieza}"/>
+                    <section th:replace="~{mantenimientos/fragmentos :: listadoLimpiezas}"/>
+                </div>
+            </div>
         
         <footer th:replace="~{layout/plantilla :: footer}"/>
     </body>

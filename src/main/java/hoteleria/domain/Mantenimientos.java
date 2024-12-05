@@ -16,7 +16,11 @@ public class Mantenimientos implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idMantenimiento;
     private Long idUsuario;
-    private Long idHabitacion;
+    
+    @ManyToOne
+    @JoinColumn(name = "id_habitacion", referencedColumnName = "idHabitacion")
+    private Habitacion habitacion;
+    
     private String descripcion;
     private Date fecha;
     private double costo;

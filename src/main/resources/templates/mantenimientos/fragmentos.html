@@ -1,8 +1,4 @@
 <!DOCTYPE html>
-<!--
-Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
-Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this template
--->
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:th="http://www.thymeleaf.org">
     <head>
@@ -11,12 +7,386 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     </head>
     <body>
-        <section>
-            <div class="row">
-                <div th:fragment="listadoMantenimientos" class="verMantenimientos col-md-6"></div>
-                <div th:fragment="listadoLimpiezas" class="verLimpiezas col-md-6"></div>
+
+        <!-- 1 Sección para crear el boton de agregar mantenimientos... llamará a una ventana modal-->
+        <section th:fragment="botonesAgregar" class="py-4 mb-4 bg-light">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-3">   
+                        <button 
+                            sec:authorize="hasRole('ROLE_ADMIN')"
+                            type="button" 
+                            class="btn btn-primary btn-block" 
+                            data-bs-toggle="modal" 
+                            data-bs-target="#agregarMantenimiento">
+                            <i class="fas fa-plus"></i> [[#{mantenimiento.agregar}]]
+                        </button>
+                    </div>
+                </div>
             </div>
-            
-       </section>
+        </section>
+        
+         <!-- 1 Sección para crear el boton de agregar limpiezas... llamará a una ventana modal-->
+        <section th:fragment="botonesAgregar2" class="py-4 mb-4 bg-light">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-3">   
+                        <button 
+                            sec:authorize="hasRole('ROLE_ADMIN')"
+                            type="button" 
+                            class="btn btn-primary btn-block" 
+                            data-bs-toggle="modal" 
+                            data-bs-target="#agregarLimpieza">
+                            <i class="fas fa-plus"></i> [[#{limpieza.agregar}]]
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        
+
+        <!-- 2 Fragmento para agregar mantenimiento, es la ventana modal -->
+        <section th:fragment="agregarMantenimiento">
+            <div id="agregarMantenimiento" 
+                 class="modal fade" 
+                 tabindex="-1" 
+                 aria-labelledby="exampleModalLabel" 
+                 aria-hidden="true">
+                <div class="modal-dialog modal-md">
+                    <div class="modal-content">
+                        <div class="modal-header bg-info text-white">
+                            <h5 class="modal-title">[[#{mantenimiento.agregar}]]</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div> 
+                        <form th:action="@{/mantenimiento/guardar}"
+                              th:object="${mantenimiento}"
+                              method="POST" 
+                              class="was-validated" 
+                              enctype="multipart/form-data">
+                            <div class="modal-body">
+                                <div class="mb-3">
+                                    <label for="idUsuario">[[#{mantenimiento.nombre}]]</label>
+                                    <input type="text" class="form-control" 
+                                           name="idUsuario" required="true"/>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="descripcion">[[#{mantenimiento.apellido}]]</label>
+                                    <input type="text" class="form-control" 
+                                           name="descripcion" required="true"/>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="fecha">[[#{mantenimiento.correo}]]</label>
+                                    <input type="date" class="form-control" 
+                                           name="fecha" required="true"/>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="costo">[[#{mantenimiento.contrasena}]]</label>
+                                    <input type="number" class="form-control" 
+                                           name="costo" required="true"/>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="activo">[[#{mantenimiento.activo}]]</label>
+                                    <input class="form-check-input" type="checkbox" 
+                                           name="activo" id="activo"/>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button class="btn btn-primary" type="submit">Guardar</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- 2 Fragmento para agregar mantenimiento, es la ventana modal -->
+        <section th:fragment="agregarLimpieza">
+            <div id="agregarLimpieza" 
+                 class="modal fade" 
+                 tabindex="-1" 
+                 aria-labelledby="exampleModalLabel" 
+                 aria-hidden="true">
+                <div class="modal-dialog modal-md">
+                    <div class="modal-content">
+                        <div class="modal-header bg-info text-white">
+                            <h5 class="modal-title">[[#{limpieza.agregar}]]</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div> 
+                        <form th:action="@{/limpieza/guardar}"
+                              th:object="${limpiezaHabitacion}"
+                              method="POST" 
+                              class="was-validated" 
+                              enctype="multipart/form-data">
+                            <div class="modal-body">
+                                <div class="mb-3">
+                                    <label for="idUsuario">[[#{limpieza.usuario}]]</label>
+                                    <input type="text" class="form-control" 
+                                           name="idUsuario" required="true"/>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="idHabitacion">[[#{limpieza.habitacion}]]</label>
+                                    <input type="text" class="form-control" 
+                                           name="idHabitacion" required="true"/>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="fecha">[[#{limpieza.fecha}]]</label>
+                                    <input type="date" class="form-control" 
+                                           name="fecha" required="true"/>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="comentario">[[#{limpieza.comentario}]]</label>
+                                    <input type="text" class="form-control" 
+                                           name="comentario" required="true"/>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="activo">[[#{limpieza.activo}]]</label>
+                                    <input class="form-check-input" type="checkbox" 
+                                           name="activo" id="activo"/>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button class="btn btn-primary" type="submit">Guardar</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- 3 Fragmento para agregar mantenimiento, es la ventana modal -->
+        <section th:fragment="listadoMantenimientos">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <h4>[[#{mantenimiento.listado}]]</h4>
+                            </div>
+                            <div class="card-body">
+                                <div th:if='${Mantenimientos != null and !Mantenimientos.empty}'  style="margin-left: -50px">
+                                    <table class="table table-striped table-over">
+                                        <thead>
+                                            <tr>
+                                                <th>#</th>
+                                                <th>[[#{mantenimiento.idHabitacion}]]</th>
+                                                <th>[[#{mantenimiento.idUsuario}]]</th>
+                                                <th>[[#{mantenimiento.descripcion}]]</th>
+                                                <th>[[#{mantenimiento.fecha}]]</th>
+                                                <th>[[#{mantenimiento.costo}]]</th>
+                                                <th>[[#{mantenimiento.estado}]]</th>
+                                                <!--th>[[#{mantenimiento.rutaImagen}]]</th-->
+                                                <th></th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr th:each="c : ${Mantenimientos}">
+                                                <td>[[${c.idMantenimiento}]]</td>
+                                                <td>[[${c.habitacion.numero}]]</td>
+                                                <td>[[${c.idUsuario}]]</td>
+                                                <td>[[${c.descripcion}]]</td>
+                                                <td>[[${c.fecha}]]</td>
+                                                <td>[[${c.costo}]]</td>
+
+                                                <td th:text="${c.isActivo} ? 'Activa' : 'Inactiva'">[[${c.activo}]]</td>
+                                                <!--td><img th:src="@{${c.rutaImagen}}" height="75"/></td-->
+                                                <td>
+                                                    <a th:href="@{/mantenimiento/eliminar/}+${c.idMantenimiento}"
+                                                       class='btn btn-danger'>
+                                                        <i class="fas fa-trash"></i> [[#{accion.eliminar}]]
+                                                    </a>
+                                                    <a th:href="@{/mantenimiento/modificar/}+${c.idMantenimiento}"
+                                                       class='btn btn-success'>
+                                                        <i class="fas fa-pencil"></i> [[#{accion.actualizar}]]
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div th:if='${Mantenimientos == null or Mantenimientos.empty}'>
+                                    <h3>[[#{lista.vacia}]]</h3>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class='card text-center text-white bg-success m-3'>
+                            <div class='card-body'>
+                                <h3>[[#{mantenimiento.total}]]</h3>
+                                <h4><i class="fas fa-layer-group"></i><a th:text="${totalMantenimientos}"/></h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- 3 Fragmento para agregar mantenimiento, es la ventana modal -->
+        <section th:fragment="listadoLimpiezas">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <h4>[[#{limpieza.listado}]]</h4>
+                            </div>
+                            <div class="card-body" >
+                                <div th:if='${Limpiezas != null and !Limpiezas.empty}'>
+                                    <table class="table table-striped table-over">
+                                        <thead>
+                                            <tr>
+                                                <th>#</th>
+                                                <th>[[#{limpieza.idUsuario}]]</th>
+                                                <th>[[#{limpieza.idHabitacion}]]</th>
+                                                <th>[[#{limpieza.fecha}]]</th>
+                                                <th>[[#{limpieza.comentario}]]</th>
+                                                <th>[[#{limpieza.estado}]]</th>
+                                                <!--th>[[#{mantenimiento.rutaImagen}]]</th-->
+                                                <th></th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr th:each="c : ${Limpiezas}">
+                                                <td>[[${c.idLimpieza}]]</td>
+                                                <td>[[${c.idUsuario}]]</td>
+                                                <td>[[${c.idHabitacion}]]</td>
+                                                <td>[[${c.fecha}]]</td>
+                                                <td>[[${c.comentario}]]</td>
+
+                                                <td th:text="${c.isActivo} ? 'Activa' : 'Inactiva'">[[${c.activo}]]</td>
+                                                <!--td><img th:src="@{${c.rutaImagen}}" height="75"/></td-->
+                                                <td>
+                                                    <a th:href="@{/limpieza/eliminar/}+${c.idLimpieza}"
+                                                       class='btn btn-danger'>
+                                                        <i class="fas fa-trash"></i> [[#{accion.eliminar}]]
+                                                    </a>
+                                                    <a th:href="@{/limpieza/modificar/}+${c.idLimpieza}"
+                                                       class='btn btn-success'>
+                                                        <i class="fas fa-pencil"></i> [[#{accion.actualizar}]]
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div th:if='${Limpiezas == null or Limpiezas.empty}'>
+                                    <h3>[[#{lista.vacia}]]</h3>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class='card text-center text-white bg-success m-3'>
+                            <div class='card-body'>
+                                <h3>[[#{limpieza.total}]]</h3>
+                                <h4><i class="fas fa-layer-group"></i><a th:text="${totalLimpiezas}"/></h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4 Fragmento que se utiliza en la página modifca.html -->
+        <section th:fragment="editarMantenimiento">
+            <div class="row">
+                <div class="col-md-2"></div>
+                <div class="col-md-8">
+                    <form method="POST"
+                          th:action="@{/mantenimiento/guardar}" 
+                          th:object="${mantenimiento}"
+                          class="was-validated"                          
+                          enctype="multipart/form-data">
+                        <input type="hidden" name="idMantenimiento" th:field="*{idMantenimiento}"/>
+                        <input type="hidden" name="rutaImagen" th:field="*{rutaImagen}"/>
+                        <section th:replace="~{mantenimiento/fragmentos :: botonesEditar}"/>
+                        <div id=details>
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col">
+                                        <div class="card">
+                                            <div class="card-header">
+                                                <h4>[[#{accion.actualizar}]]</h4>
+                                            </div>
+                                            <div class="card-body">
+                                                <div class="mb-3">
+                                                    <label for="nombre">[[#{mantenimiento.nombre}]]</label>
+                                                    <input type="text" class="form-control" 
+                                                           name="nombre" th:field="*{nombre}"
+                                                           required="true">
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label for="apellido">[[#{mantenimiento.apellido}]]</label>
+                                                    <input type="text" class="form-control" 
+                                                           name="apellido" th:field="*{apellido}"
+                                                           required="true">
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label for="correo">[[#{mantenimiento.correo}]]</label>
+                                                    <input type="text" class="form-control" 
+                                                           name="correo" th:field="*{correo}"
+                                                           required="true">
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label for="contrasena">[[#{mantenimiento.contrasena}]]</label>
+                                                    <input type="text" class="form-control" 
+                                                           name="contrasena" th:field="*{contrasena}"
+                                                           required="true">
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label for="telefono">[[#{mantenimiento.telefono}]]</label>
+                                                    <input type="text" class="form-control" 
+                                                           name="telefono" th:field="*{telefono}"
+                                                           required="true">
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label for="activo">[[#{mantenimiento.activo}]]</label>
+                                                    <input class="form-check-input" 
+                                                           type="checkbox" 
+                                                           name="activo" 
+                                                           id="activo"
+                                                           th:field="*{activo}">
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label for="imagen">[[#{mantenimiento.rutaImagen}]]</label>
+                                                    <input class="form-control" type="file" name="imagenFile"
+                                                           onchange="readURL(this);" />
+                                                    <img id="blah" th:src="@{${mantenimiento.rutaImagen}}" alt="your image" height="200"/>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5 Fragmento que se utiliza en el fragmento anterior -->
+        <section th:fragment="botonesEditar">
+            <div class="container py-4 mb-4 bg-light">
+                <div class="row">
+                    <div class="col-md-4 d-grid">
+                        <a th:href="@{/mantenimiento/listado}" class="btn btn-primary">
+                            <i class="fas fa-arrow-left"></i> [[#{accion.regresar}]]
+                        </a>
+                    </div>
+                    <div class="col-md-4 d-grid">                                
+                        <a th:href="@{/mantenimiento/eliminar/}+${mantenimiento.idMantenimiento}"
+                           class="btn btn-danger">
+                            <i class="fas fa-trash"></i> [[#{accion.eliminar}]]
+                        </a>
+                    </div>
+                    <div class="col-md-4 d-grid">
+                        <button type="submit" class="btn btn-success">
+                            <i class="fas fa-check"></i> [[#{accion.guardar}]]
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
     </body>
 </html>
