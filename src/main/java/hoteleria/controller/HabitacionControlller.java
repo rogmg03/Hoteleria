@@ -3,11 +3,13 @@ package hoteleria.controller;
 import hoteleria.domain.Habitacion;
 import hoteleria.domain.Hotel;
 import hoteleria.services.HabitacionService;
+import hoteleria.services.HotelService;
 import hoteleria.services.impl.FirebaseStorageServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -19,6 +21,8 @@ public class HabitacionControlller {
 
 @Autowired
     private HabitacionService HabitacionService;
+@Autowired
+    private HotelService HotelService;
 
 //@Autowired
 //    private Habitacion Habitacion;
@@ -36,8 +40,10 @@ public class HabitacionControlller {
 
     @PostMapping("/guardar")
     public String HabitacionGuardar(Habitacion Habitacion,
-            @RequestParam("imagenFile") MultipartFile imagenFile) {
+            @RequestParam("imagenFile") MultipartFile imagenFile,  @RequestParam("idHotel") Long idHotel) {
+        Hotel hotel = HotelService.findById(idHotel);
         if (!imagenFile.isEmpty()) {
+            Habitacion.setHotel(hotel);
             HabitacionService.save(Habitacion);
             Habitacion.setRutaImagen(
                     firebaseStorageService.cargaImagen(
@@ -63,11 +69,11 @@ public class HabitacionControlller {
     }
     
     @GetMapping("/listado2/{idHotel}")
-        public String HotelHabitacion(Habitacion Habitacion, Model model) {
-        Long idHabitacion = Habitacion.getHotel().getIdHotel();
-        var habitacionUnica = HabitacionService.findByIdHotel(idHabitacion);
+        public String HotelHabitacion(@PathVariable Long idHotel, Model model) {
+        var habitacionUnica = HabitacionService.findByIdHotel(idHotel);
         //model.addAttribute("Habitaciones", Habitacion);
         model.addAttribute("Habitaciones", habitacionUnica);
-        return "/listado2/idHotel";
+        model.addAttribute("IdHotel", idHotel);
+        return "habitaciones/listado2";
     }
 }

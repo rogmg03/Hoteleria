@@ -6,6 +6,8 @@ import java.util.List;
 
 
 public interface HotelService {
+
+    public Hotel findById(Long idHotel);
     public List<Hotel> getHoteles(boolean activo);
 
     public Hotel getHotel(Hotel hotel);

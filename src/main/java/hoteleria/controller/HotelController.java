@@ -58,7 +58,7 @@ public class HotelController {
     public String HotelModificar(Hotel Hotel, Model model) {
         Hotel = HotelService.getHotel(Hotel);
         model.addAttribute("Hotel", Hotel);
-        return "/Hotel/modifica";
+        return "/habitaciones/modifica";
     }
     
 

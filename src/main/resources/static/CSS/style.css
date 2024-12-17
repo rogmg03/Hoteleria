@@ -278,3 +278,11 @@ footer{
             font-size: 3em;
             font-weight: bold;
         }
+        
+        
+        .carouselImg{
+            object-fit: cover;
+            height: 600px;
+            width: 100%;
+                
+        }

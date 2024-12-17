@@ -169,6 +169,54 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
                 </div>
             </div>
         </section>
+
+
+
+        <section th:fragment="listadoHabitaciones2" class="habitaciones">
+            <div style="width: 100%; margin: 30px">
+                <h1>Habitaciones</h1>
+            </div>
+
+            <!-- Loop through Habitaciones -->
+            <div th:each="habitacion : ${Habitaciones}" class="card" style="width: 18rem; margin: 15px; display: inline-block;">
+                <!-- Image -->
+                <img th:src="${habitacion.rutaImagen != null} ? ${habitacion.rutaImagen} : @{/IMG/room1.jpg}" class="card-img-top" />
+
+                <!-- Card Body -->
+                <div class="card-body">
+                    <h5 class="card-title" th:text="${habitacion.tipo}">Tipo de Habitación</h5>
+                </div>
+
+                <!-- Details -->
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item" th:text="'Número: ' + ${habitacion.numero}">Número</li>
+                    <li class="list-group-item" th:text="'Piso: ' + ${habitacion.piso}">Piso</li>
+                    <li class="list-group-item" th:text="'Tipo: ' + ${habitacion.tipo}">Tipo</li>
+                    <li class="list-group-item" th:text="'Disponible: ' + ${habitacion.disponible ? 'Sí' : 'No'}">Disponible</li>
+                    <li class="list-group-item" th:text="'Precio: $' + ${habitacion.precio}">Precio</li>
+                </ul>
+
+                <!-- Buttons -->
+                <div class="card-body" style="display: flex; justify-content: center; flex-wrap: nowrap;">
+                    <button
+                        class="btn btn-outline-success btn-lg px-5"
+                        type="button"
+                        data-bs-toggle="modal"
+                        data-bs-target="#reservarHabitacion">
+                        <i class="fas fa-check"></i> Reservar
+                    </button>
+                    <button
+                        class="btn btn-outline-primary btn-lg px-5"
+                        type="button"
+                        data-bs-toggle="modal"
+                        data-bs-target="#editarHabitacion">
+                        <i class="fas fa-edit"></i> Editar
+                    </button>
+                </div>
+            </div>
+        </section>
+
+
         <!-- 1 Sección para crear el boton de agregar... llamará a una ventana modal-->
         <section th:fragment="botonesAgregar" class="py-4 mb-4 bg-light">
             <div class="container">
@@ -200,36 +248,42 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
                             <h5 class="modal-title">[[#{habitacion.agregar}]]</h5>
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div> 
-                        <form th:action="@{/habitacion/guardar}"
+                        <form th:action="@{/habitaciones/guardar}"
                               th:object="${habitacion}"
                               method="POST" 
                               class="was-validated" 
                               enctype="multipart/form-data">
                             <div class="modal-body">
                                 <div class="mb-3">
+                                    <input type="hidden" class="form-control" 
+                                           name="idHotel" id="idHotel" 
+                                           th:value="${IdHotel}" />
+                                </div>
+
+                                <div class="mb-3">
                                     <label for="numero">[[#{habitacion.numero}]]</label>
                                     <input type="number" class="form-control" 
-                                           name="numero" required="true"/>
+                                           name="numero" required="true" id="numero"/>
                                 </div>
                                 <div class="mb-3">
                                     <label for="piso">[[#{habitacion.piso}]]</label>
                                     <input type="number" class="form-control" 
-                                           name="piso" required="true"/>
+                                           name="piso" required="true" id="piso"/>
                                 </div>
                                 <div class="mb-3">
                                     <label for="tipo">[[#{habitacion.tipo}]]</label>
                                     <input type="text" class="form-control" 
-                                           name="tipo" required="true"/>
+                                           name="tipo" required="true" id="tipo"/>
                                 </div>
                                 <div class="mb-3">
                                     <label for="precio">[[#{habitacion.precio}]]</label>
                                     <input type="number" class="form-control" 
-                                           name="precio" required="true"/>
+                                           name="precio" required="true" id="precio"/>
                                 </div>
                                 <div class="mb-3">
                                     <label for="disponible">[[#{habitacion.disponible}]]</label>
                                     <input type="checkbox" class="form-control" 
-                                           name="disponible" required="true"/>
+                                           name="disponible" required="true" id="disponible"/>
                                 </div>
                                 <div class="mb-3">
                                     <label for="activo">[[#{habitacion.activo}]]</label>
@@ -237,11 +291,11 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
                                            name="activo" id="activo"/>
                                 </div>
                                 <div class="mb-3">
-                                    <label for="imagen">[[#{habitacion.rutaImagen}]]</label>
+                                    <label for="imagenFile">[[#{habitacion.rutaImagen}]]</label>
                                     <input class="form-control" 
                                            type="file" 
                                            name="imagenFile" 
-                                           onchange="readURL(this);"/>
+                                           onchange="readURL(this);" id="imagenFile"/>
                                     <img id="blah" src="#" alt="your image" height="200"/>
                                 </div>
                             </div>
@@ -281,15 +335,15 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
                                     <div class="mb-3">
                                         <label for="fechaInicio">Fecha Inicio</label>
                                         <input type="date" class="form-control" 
-                                               name="fechaInicio" required="true"/>
+                                               name="fechaInicio" required="true" id="fechaInicio"/>
                                     </div>
                                     <div class="mb-3">
                                         <label for="fechaFin">Fecha fin</label>
                                         <input type="date" class="form-control" 
-                                               name="fechaFin" required="true"/>
+                                               name="fechaFin" required="true" id="fechaFin"/>
                                     </div>
                                 </div>
-                                <h4>Servicios</h4>
+                                <!--h4>Servicios</h4>
                                 <ul class="list-group">
                                     <li class="list-group-item">
                                         <input class="form-check-input me-1" type="checkbox" value="" aria-label="...">
@@ -311,7 +365,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
                                         <input class="form-check-input me-1" type="checkbox" value="" aria-label="...">
                                             Fifth checkbox
                                     </li>
-                                </ul>
+                                </ul-->
                             </form>
                             <div class="modal-footer">
                                 <button class="btn btn-primary" type="submit">Guardar</button>

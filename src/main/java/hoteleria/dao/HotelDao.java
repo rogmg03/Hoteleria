@@ -6,5 +6,5 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 @EnableJpaRepositories
 public interface HotelDao extends JpaRepository<Hotel, Long> {
-        
+        public Hotel findByIdHotel(Long idHotel);
 }
