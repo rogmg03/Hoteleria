@@ -3,6 +3,7 @@ package hoteleria.services;
 
 import hoteleria.domain.Usuario;
 import java.util.List;
+import java.util.Optional;
 
 public interface UsuarioService {
     // Se obtiene un listado de usuarios en un List
@@ -29,4 +30,6 @@ public interface UsuarioService {
     
     // Se elimina el usuario que tiene el id pasado por parámetro
     public void delete(Usuario usuario);
+
+    public Optional<Usuario> findById(Long idUsuario);
 }

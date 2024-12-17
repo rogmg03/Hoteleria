@@ -30,8 +30,10 @@ public class HabitacionControlller {
     @GetMapping("/listado")
     public String listado(Model model) {
         var lista = HabitacionService.getHabitaciones(false);
+        var lista2 = HotelService.getHoteles(false);
         model.addAttribute("Habitaciones", lista);
         model.addAttribute("totalHabitaciones", lista.size());
+        model.addAttribute("Hoteles", lista2);
         return "/habitaciones/listado";
     }
 

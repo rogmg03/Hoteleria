@@ -1,6 +1,8 @@
 package hoteleria.controller;
 
+import hoteleria.domain.Habitacion;
 import hoteleria.domain.Mantenimientos;
+import hoteleria.services.HabitacionService;
 import hoteleria.services.LimpiezaHabitacionService;
 import hoteleria.services.MantenimientosService;
 import hoteleria.services.impl.FirebaseStorageServiceImpl;
@@ -10,7 +12,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 @RequestMapping("/mantenimientos")
@@ -18,7 +20,9 @@ public class MantenimientosController {
 
     @Autowired
     private MantenimientosService MantenimientosService;
-    
+    @Autowired
+    private HabitacionService HabitacionService;
+
     @Autowired
     private LimpiezaHabitacionService LimpiezaHabitacionService;
 
@@ -30,9 +34,12 @@ public class MantenimientosController {
         var lista2 = LimpiezaHabitacionService.getLimpiezaHabitaciones(false);
         model.addAttribute("Limpiezas", lista2);
         model.addAttribute("totalLimpiezas", lista2.size());
+        var habitaciones = HabitacionService.getHabitaciones(false);
+        model.addAttribute("habitaciones", habitaciones);
+        model.addAttribute("mantenimiento", new Mantenimientos());
         return "/mantenimientos/listado";
     }
-/*
+    /*
     @GetMapping("/listado2")
     public String listado2(Model model) {
         var lista = LimpiezaHabitacionService.getLimpiezaHabitaciones(false);
@@ -40,13 +47,14 @@ public class MantenimientosController {
         model.addAttribute("totalLimpiezaLimpiezaHabitaciones", lista.size());
         return "/limpieza/listado";
     }
-  */  
+     */
     @Autowired
     private FirebaseStorageServiceImpl firebaseStorageService;
-    
-    
+
     @PostMapping("/guardar")
-    public String MantenimientosGuardar(Mantenimientos Mantenimientos) {
+    public String MantenimientosGuardar(Mantenimientos Mantenimientos, @RequestParam("habitacion") Long idHabitacion) {
+        Habitacion habitacion = HabitacionService.getHabitacionById(idHabitacion);
+        
         MantenimientosService.save(Mantenimientos);
         return "redirect:/mantenimientos/listado";
     }

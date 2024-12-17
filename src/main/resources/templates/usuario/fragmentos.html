@@ -44,7 +44,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div> 
                         <form th:action="@{/usuario/guardar}"
-                              th:object="${usuario}"
+                              th:object="${Usuario}"
                               method="POST" 
                               class="was-validated" 
                               enctype="multipart/form-data">
@@ -102,7 +102,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
             <div class="container">
                 <div class="row">
                     <div class="col-md-12">
-                        <div class="card">
+                        <div class="card"  style="width: 100%">
                             <div class="card-header">
                                 <h4>[[#{usuario.listado}]]</h4>
                             </div>
@@ -170,7 +170,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
                 <div class="col-md-8">
                     <form method="POST"
                           th:action="@{/usuario/guardar}" 
-                          th:object="${usuario}"
+                          th:object="${Usuario}"
                           class="was-validated"                          
                           enctype="multipart/form-data">
                         <input type="hidden" name="idUsuario" th:field="*{idUsuario}"/>
@@ -227,7 +227,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
                                                     <label for="imagen">[[#{usuario.rutaImagen}]]</label>
                                                     <input class="form-control" type="file" name="imagenFile"
                                                            onchange="readURL(this);" />
-                                                    <img id="blah" th:src="@{${usuario.rutaImagen}}" alt="your image" height="200"/>
+                                                    <img id="blah" th:src="@{${Usuario.rutaImagen}}" alt="your image" height="200"/>
                                                 </div>
                                             </div>
                                         </div>
@@ -249,7 +249,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
                         </a>
                     </div>
                     <div class="col-md-4 d-grid">                                
-                        <a th:href="@{/usuario/eliminar/}+${usuario.idUsuario}"
+                        <a th:href="@{/usuario/eliminar/}+${Usuario.idUsuario}"
                            class="btn btn-danger">
                             <i class="fas fa-trash"></i> [[#{accion.eliminar}]]
                         </a>

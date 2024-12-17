@@ -6,6 +6,7 @@ import hoteleria.dao.UsuarioDao;
 import hoteleria.domain.Usuario;
 import hoteleria.services.UsuarioService;
 import java.util.List;
+import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -62,5 +63,10 @@ public class UsuarioServiceImpl implements UsuarioService {
     @Override
     public void save(Usuario usuario, boolean crearRolUser) {
         usuarioDao.save(usuario);
+    }
+
+    @Override
+    public Optional<Usuario> findById(Long idUsuario) {
+        return usuarioDao.findById(idUsuario);
     }
 }

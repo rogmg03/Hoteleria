@@ -14,5 +14,8 @@ public interface HabitacionService {
     public void delete(Habitacion habitacion);
     
     public List<Habitacion> findByIdHotel(Long idHotel);
+    
+    public Habitacion getHabitacionById(Long id);
+
 
 }

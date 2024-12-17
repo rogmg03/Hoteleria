@@ -51,5 +51,11 @@ public class HabitacionServiceImpl implements HabitacionService {
     public List<Habitacion> findByIdHotel(Long idHotel) {
         return habitacionDao.findByHotel_IdHotel(idHotel);
     }
+    
+    @Override
+    public Habitacion getHabitacionById(Long id) {
+    return habitacionDao.findById(id).orElse(null);
+}
+
 
 }

@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -34,14 +35,14 @@ public class UsuarioController {
     public String UsuarioGuardar(Usuario Usuario,
             @RequestParam("imagenFile") MultipartFile imagenFile) {
         if (!imagenFile.isEmpty()) {
-            UsuarioService.save(Usuario,false);
+            UsuarioService.save(Usuario, false);
             Usuario.setRutaImagen(
                     firebaseStorageService.cargaImagen(
                             imagenFile,
                             "Usuario",
                             Usuario.getIdUsuario()));
         }
-        UsuarioService.save(Usuario,false);
+        UsuarioService.save(Usuario, false);
         return "redirect:/usuario/listado";
     }
 
@@ -52,14 +53,12 @@ public class UsuarioController {
     }
 
     @GetMapping("/modificar/{idUsuario}")
-    public String UsuarioModificar(Usuario Usuario, Model model) {
-        Usuario = UsuarioService.getUsuario(Usuario);
-        model.addAttribute("Usuario", Usuario);
+    public String UsuarioModificar(@PathVariable("idUsuario") Long idUsuario, Model model) {
+        var usuario = UsuarioService.findById(idUsuario).orElseThrow(
+        () -> new RuntimeException("Usuario not found with ID: " + idUsuario)
+    );
+        model.addAttribute("Usuario", usuario);
         return "/usuario/modifica";
     }
-    
-    
 
-    
-    
 }

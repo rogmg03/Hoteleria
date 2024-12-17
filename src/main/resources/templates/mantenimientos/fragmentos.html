@@ -25,8 +25,8 @@
                 </div>
             </div>
         </section>
-        
-         <!-- 1 Sección para crear el boton de agregar limpiezas... llamará a una ventana modal-->
+
+        <!-- 1 Sección para crear el boton de agregar limpiezas... llamará a una ventana modal-->
         <section th:fragment="botonesAgregar2" class="py-4 mb-4 bg-light">
             <div class="container">
                 <div class="row">
@@ -43,8 +43,8 @@
                 </div>
             </div>
         </section>
-        
-        
+
+
 
         <!-- 2 Fragmento para agregar mantenimiento, es la ventana modal -->
         <section th:fragment="agregarMantenimiento">
@@ -65,30 +65,71 @@
                               class="was-validated" 
                               enctype="multipart/form-data">
                             <div class="modal-body">
+
+                                <!-- Campo idUsuario -->
                                 <div class="mb-3">
-                                    <label for="idUsuario">[[#{mantenimiento.nombre}]]</label>
-                                    <input type="text" class="form-control" 
-                                           name="idUsuario" required="true"/>
-                                </div>
-                                <div class="mb-3">
-                                    <label for="descripcion">[[#{mantenimiento.apellido}]]</label>
-                                    <input type="text" class="form-control" 
-                                           name="descripcion" required="true"/>
-                                </div>
-                                <div class="mb-3">
-                                    <label for="fecha">[[#{mantenimiento.correo}]]</label>
-                                    <input type="date" class="form-control" 
-                                           name="fecha" required="true"/>
-                                </div>
-                                <div class="mb-3">
-                                    <label for="costo">[[#{mantenimiento.contrasena}]]</label>
+                                    <label for="idUsuario">Usuario</label>
                                     <input type="number" class="form-control" 
-                                           name="costo" required="true"/>
+                                           id="idUsuario" 
+                                           name="idUsuario" 
+                                           th:field="*{idUsuario}" 
+                                           required="true"/>
                                 </div>
+
+                                <!-- Dropdown para seleccionar Habitación -->
                                 <div class="mb-3">
-                                    <label for="activo">[[#{mantenimiento.activo}]]</label>
-                                    <input class="form-check-input" type="checkbox" 
-                                           name="activo" id="activo"/>
+                                    <label for="habitacion">Habitación</label>
+                                    <select class="form-control" 
+                                            id="habitacion" 
+                                            name="habitacion" 
+                                            th:field="*{habitacion.idHabitacion}" 
+                                            required>
+                                        <option value="" disabled selected>-- Selecciona una Habitación --</option>
+                                        <option th:each="hab : ${habitaciones}" 
+                                                th:value="${hab.idHabitacion}" 
+                                                th:text="|Número: ${hab.numero}, Piso: ${hab.piso}|">
+                                        </option>
+                                    </select>
+                                </div>
+
+                                <!-- Campo descripción -->
+                                <div class="mb-3">
+                                    <label for="descripcion">Descripción</label>
+                                    <input type="text" class="form-control" 
+                                           id="descripcion" 
+                                           name="descripcion" 
+                                           th:field="*{descripcion}" 
+                                           required="true"/>
+                                </div>
+
+                                <!-- Campo fecha -->
+                                <div class="mb-3">
+                                    <label for="fecha">Fecha</label>
+                                    <input type="date" class="form-control" 
+                                           id="fecha" 
+                                           name="fecha" 
+                                           th:field="*{fecha}" 
+                                           required="true"/>
+                                </div>
+
+                                <!-- Campo costo -->
+                                <div class="mb-3">
+                                    <label for="costo">Costo</label>
+                                    <input type="number" class="form-control" 
+                                           id="costo" 
+                                           name="costo" 
+                                           th:field="*{costo}" 
+                                           required="true"/>
+                                </div>
+
+                                <!-- Campo activo -->
+                                <div class="mb-3 form-check">
+                                    <input class="form-check-input" 
+                                           type="checkbox" 
+                                           id="activo" 
+                                           name="activo" 
+                                           th:field="*{activo}"/>
+                                    <label class="form-check-label" for="activo">Activo</label>
                                 </div>
                             </div>
                             <div class="modal-footer">
@@ -99,7 +140,8 @@
                 </div>
             </div>
         </section>
-        
+
+
         <!-- 2 Fragmento para agregar mantenimiento, es la ventana modal -->
         <section th:fragment="agregarLimpieza">
             <div id="agregarLimpieza" 
@@ -160,8 +202,8 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-12">
-                        <div class="card">
-                            <div class="card-header">
+                        <div class="card"  style="width: 100%">
+                            <div class="card-header"  style="width: 100%; margin-left: -50px">
                                 <h4>[[#{mantenimiento.listado}]]</h4>
                             </div>
                             <div class="card-body">
@@ -222,13 +264,13 @@
                 </div>
             </div>
         </section>
-        
+
         <!-- 3 Fragmento para agregar mantenimiento, es la ventana modal -->
         <section th:fragment="listadoLimpiezas">
             <div class="container">
                 <div class="row">
                     <div class="col-md-12">
-                        <div class="card">
+                        <div class="card"  style="width: 100%; margin-left: -20px">
                             <div class="card-header">
                                 <h4>[[#{limpieza.listado}]]</h4>
                             </div>
@@ -294,73 +336,49 @@
             <div class="row">
                 <div class="col-md-2"></div>
                 <div class="col-md-8">
-                    <form method="POST"
-                          th:action="@{/mantenimiento/guardar}" 
-                          th:object="${mantenimiento}"
-                          class="was-validated"                          
-                          enctype="multipart/form-data">
-                        <input type="hidden" name="idMantenimiento" th:field="*{idMantenimiento}"/>
-                        <input type="hidden" name="rutaImagen" th:field="*{rutaImagen}"/>
-                        <section th:replace="~{mantenimiento/fragmentos :: botonesEditar}"/>
-                        <div id=details>
-                            <div class="container">
-                                <div class="row">
-                                    <div class="col">
-                                        <div class="card">
-                                            <div class="card-header">
-                                                <h4>[[#{accion.actualizar}]]</h4>
-                                            </div>
-                                            <div class="card-body">
-                                                <div class="mb-3">
-                                                    <label for="nombre">[[#{mantenimiento.nombre}]]</label>
-                                                    <input type="text" class="form-control" 
-                                                           name="nombre" th:field="*{nombre}"
-                                                           required="true">
-                                                </div>
-                                                <div class="mb-3">
-                                                    <label for="apellido">[[#{mantenimiento.apellido}]]</label>
-                                                    <input type="text" class="form-control" 
-                                                           name="apellido" th:field="*{apellido}"
-                                                           required="true">
-                                                </div>
-                                                <div class="mb-3">
-                                                    <label for="correo">[[#{mantenimiento.correo}]]</label>
-                                                    <input type="text" class="form-control" 
-                                                           name="correo" th:field="*{correo}"
-                                                           required="true">
-                                                </div>
-                                                <div class="mb-3">
-                                                    <label for="contrasena">[[#{mantenimiento.contrasena}]]</label>
-                                                    <input type="text" class="form-control" 
-                                                           name="contrasena" th:field="*{contrasena}"
-                                                           required="true">
-                                                </div>
-                                                <div class="mb-3">
-                                                    <label for="telefono">[[#{mantenimiento.telefono}]]</label>
-                                                    <input type="text" class="form-control" 
-                                                           name="telefono" th:field="*{telefono}"
-                                                           required="true">
-                                                </div>
-                                                <div class="mb-3">
-                                                    <label for="activo">[[#{mantenimiento.activo}]]</label>
-                                                    <input class="form-check-input" 
-                                                           type="checkbox" 
-                                                           name="activo" 
-                                                           id="activo"
-                                                           th:field="*{activo}">
-                                                </div>
-                                                <div class="mb-3">
-                                                    <label for="imagen">[[#{mantenimiento.rutaImagen}]]</label>
-                                                    <input class="form-control" type="file" name="imagenFile"
-                                                           onchange="readURL(this);" />
-                                                    <img id="blah" th:src="@{${mantenimiento.rutaImagen}}" alt="your image" height="200"/>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                    <form th:action="@{/mantenimiento/guardar}" 
+                          th:object="${mantenimiento}" 
+                          method="POST" 
+                          class="was-validated">
+
+                        <!-- Dropdown de habitaciones -->
+                        <div class="mb-3">
+                            <label for="habitacion">Habitación</label>
+                            <select class="form-control" id="habitacion" th:field="*{habitacion.idHabitacion}" required>
+                                <option value="" disabled selected>-- Selecciona una Habitación --</option>
+                                <option th:each="hab : ${habitaciones}" 
+                                        th:value="${hab.idHabitacion}" 
+                                        th:text="|Habitación ${hab.numero}, Piso ${hab.piso}|">
+                                </option>
+                            </select>
+                        </div>
+
+                        <!-- Campos adicionales -->
+                        <div class="mb-3">
+                            <label for="descripcion">Descripción</label>
+                            <input type="text" class="form-control" id="descripcion" th:field="*{descripcion}" required />
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="fecha">Fecha</label>
+                            <input type="date" class="form-control" id="fecha" th:field="*{fecha}" required />
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="costo">Costo</label>
+                            <input type="number" step="0.01" class="form-control" id="costo" th:field="*{costo}" required />
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="activo">Activo</label>
+                            <input type="checkbox" class="form-check-input" id="activo" th:field="*{activo}" />
+                        </div>
+
+                        <div class="modal-footer">
+                            <button type="submit" class="btn btn-primary">Guardar</button>
+                        </div>
                     </form>
+
                 </div>
             </div>
         </section>
