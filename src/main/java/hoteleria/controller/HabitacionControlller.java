@@ -1,6 +1,7 @@
 package hoteleria.controller;
 
 import hoteleria.domain.Habitacion;
+import hoteleria.domain.Hotel;
 import hoteleria.services.HabitacionService;
 import hoteleria.services.impl.FirebaseStorageServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,6 +19,9 @@ public class HabitacionControlller {
 
 @Autowired
     private HabitacionService HabitacionService;
+
+//@Autowired
+//    private Habitacion Habitacion;
 
     @GetMapping("/listado")
     public String listado(Model model) {
@@ -56,5 +60,14 @@ public class HabitacionControlller {
         Habitacion = HabitacionService.getHabitacion(Habitacion);
         model.addAttribute("Habitacion", Habitacion);
         return "/habitaciones/modifica";
+    }
+    
+    @GetMapping("/listado2/{idHotel}")
+        public String HotelHabitacion(Habitacion Habitacion, Model model) {
+        Long idHabitacion = Habitacion.getHotel().getIdHotel();
+        var habitacionUnica = HabitacionService.findByIdHotel(idHabitacion);
+        //model.addAttribute("Habitaciones", Habitacion);
+        model.addAttribute("Habitaciones", habitacionUnica);
+        return "/listado2/idHotel";
     }
 }

@@ -14,7 +14,7 @@ public class Habitacion implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idHabitacion;
-    private Long idHotel;
+    //private Long idHotel;
     private int numero;
     private int piso;
     private String tipo;
@@ -22,6 +22,8 @@ public class Habitacion implements Serializable {
     private boolean disponible;
     private String rutaImagen;
     private boolean activo;
-
     
+   @ManyToOne
+    @JoinColumn(name = "id_hotel", referencedColumnName = "idHotel", nullable = false)
+    private Hotel hotel;
 }

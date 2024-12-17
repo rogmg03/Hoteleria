@@ -8,8 +8,11 @@
     <body>
         <header th:replace="~{layout/plantilla :: header}"/>
 
-        <p>[[${totalHoteles}]]</p>
-        
+        <section th:replace="~{habitaciones/fragmentos :: botonesAgregar}"/>
+        <section th:replace="~{habitaciones/fragmentos :: agregarHabitacion}"/>
+        <section th:replace="~{habitaciones/fragmentos :: reservarHabitacion}"/>
+        <section th:replace="~{habitaciones/fragmentos :: listadoHabitaciones}"/>
+
         <footer th:replace="~{layout/plantilla :: footer}"/>
 
 

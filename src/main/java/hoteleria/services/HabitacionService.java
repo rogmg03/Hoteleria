@@ -12,4 +12,7 @@ public interface HabitacionService {
     public void save(Habitacion habitacion);
 
     public void delete(Habitacion habitacion);
+    
+    public List<Habitacion> findByIdHotel(Long idHotel);
+
 }

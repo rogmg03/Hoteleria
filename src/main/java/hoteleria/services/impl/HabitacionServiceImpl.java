@@ -46,4 +46,10 @@ public class HabitacionServiceImpl implements HabitacionService {
     ) {
         habitacionDao.delete(habitacion);
     }
+
+    @Override
+    public List<Habitacion> findByIdHotel(Long idHotel) {
+        return habitacionDao.findByHotel_IdHotel(idHotel);
+    }
+
 }

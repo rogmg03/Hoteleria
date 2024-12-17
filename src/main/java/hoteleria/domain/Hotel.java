@@ -21,6 +21,7 @@ public class Hotel implements Serializable {
     private String email;
     private String rutaImagen;
     private boolean activo;
+    
 
     
 }
